@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-b
+  labels:
+    app: product-b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-b
+  template:
+    metadata:
+      labels:
+        app: product-b
+    spec:
+      containers:
+      - name: httpbin
+        image: kennethreitz/httpbin
+        ports:
+        - containerPort: 80
